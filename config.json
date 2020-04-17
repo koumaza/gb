@@ -1,0 +1,8 @@
+{
+  "repourl": "https://github.com/BlissRoms/platform_manifest",
+  "branch":  "q",
+  
+  "build_command": "blissify aosp_arm64-userdebug",
+  
+  "special_mode":  "off", // on/off
+}
