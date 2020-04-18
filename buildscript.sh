@@ -1,5 +1,7 @@
 #!/bin/bash
 
+env GO111MODULE=on go get github.com/mikefarah/yq/v3
+ln -s go/bin/yq /usr/bin/yq
 curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ./repo
 chmod a+x ./repo && export PATH=~$(pwd):$PATH
 mkdir build && cd build
