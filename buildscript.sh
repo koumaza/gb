@@ -7,7 +7,7 @@ export yq=$GOPATH/bin/yq
 
 env GO111MODULE=on go get -v github.com/mikefarah/yq/v3
 
-export repourl="$($yq r config.yml .repourl)"
+export repourl="$($yq r config.yml repourl)"
 export branch="$($yq r config.yml branch)"
 
 
@@ -18,4 +18,4 @@ mkdir build && cd build
 ../repo sync --no-tags --no-clone-bundle --force-sync -j$(grep processor /proc/cpuinfo | wc -l)
 . build/envsetup.sh
 
-$($yq r config.yml build_command)
+$($yq r ../config.yml build_command)
