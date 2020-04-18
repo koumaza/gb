@@ -12,7 +12,7 @@ env GO111MODULE=on go get -v github.com/mikefarah/yq/v3
 curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ./repo ; chmod a+x ./repo
 
 mkdir build && cd build
-../repo init -u $repourl-b $branch
+../repo init -u "$repourl" -b "$branch"
 ../repo sync --no-tags --no-clone-bundle --force-sync -j$(grep processor /proc/cpuinfo | wc -l)
 . build/envsetup.sh
 
