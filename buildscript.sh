@@ -5,10 +5,12 @@ export GOPATH=$WORK/go
 export PATH=$PATH:$GOPATH/bin
 export yq=$GOPATH/bin/yq
 
+env GO111MODULE=on go get -v github.com/mikefarah/yq/v3
+
 export repourl="$(cat config.yml|$yq .repourl[])"
 export branch="$(cat config.yml|$yq .branch[])"
 
-env GO111MODULE=on go get -v github.com/mikefarah/yq/v3
+
 curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ./repo ; chmod a+x ./repo
 
 mkdir build && cd build
