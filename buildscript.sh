@@ -1,6 +1,6 @@
 #!/bin/bash
 tree
-export WORK=$(PWD)
+export WORK=$PWD
 export GOPATH=$WORK/go
 export PATH=$PATH:$GOPATH/bin
 export yq=$GOPATH/bin/yq
