@@ -3,7 +3,7 @@ tree
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export yq=  $GOPATH/bin/yq
+export yq=$GOPATH/bin/yq
 
 export repourl= $(cat config.yml|$yq .repourl[])
 export branch=  $(cat config.yml|$yq .branch[])
