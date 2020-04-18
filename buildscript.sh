@@ -1,12 +1,14 @@
 #!/bin/bash
 
-env GO111MODULE=on go get github.com/mikefarah/yq/v3
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+env GO111MODULE=on go get -v github.com/mikefarah/yq/v3
 
 curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ./repo
 chmod a+x ./repo && export PATH=~$(pwd):$PATH
 mkdir build && cd build
-../repo init -u $(cat ../config.yml|../go/bin/yq .repourl[]) -b $(cat ../config.yml|../go/bin/yq .branch[])
+../repo init -u $(cat ../config.yml|yq .repourl[]) -b $(cat ../config.yml|yq .branch[])
 ../repo sync --no-tags --no-clone-bundle --force-sync -j$(grep processor /proc/cpuinfo | wc -l)
 . build/envsetup.sh
 
-$(cat ../config.yml|../go/bin/yq -c .build_command[])
+$(cat ../config.yml|yq -c .build_command[])
