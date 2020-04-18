@@ -22,4 +22,14 @@ steps:
 - script: |
     bash buildscript.sh
   displayName: 'Build'
+- task: GithubRelease@0 
+  displayName: 'Create GitHub Release'      
+  inputs:
+    gitHubConnection: koumaza
+    repositoryName: koumaza/gb
+    tagSource: manual
+    tag: $(date)      
+    assets: |
+      build/XXX
+
 
