@@ -1,5 +1,5 @@
 #!/bin/bash
-ls -al */*/
+tree
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
