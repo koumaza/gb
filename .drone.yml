@@ -8,3 +8,4 @@ steps:
   image: ubuntu:latest
   commands:
   - bash setup.sh
+  - github-release upload --owner koumaza --repo gb --tag "$(date)" --name "$(date)" --body "$(date)"
