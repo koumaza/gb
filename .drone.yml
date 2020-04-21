@@ -1,11 +1,17 @@
----
+
 kind: pipeline
-type: docker
-name: default
+name: Built Bot
 
 steps:
 - name: build
-  image: ubuntu:latest
+  image: baalajimaestro/android_build:latest
+  environment:
+    TELEGRAM_TOKEN:
+      from_secret: TELEGRAM_TOKEN
+    TELEGRAM_CHAT:
+      from_secret: TELEGRAM_CHAT
+    GITHUB_TOKEN:
+      from_secret: GITHUB_TOKEN
   commands:
   - bash setup.sh
   - github-release upload --owner koumaza --repo gb --tag "$(date)" --name "$(date)" --body "$(date)"
