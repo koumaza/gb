@@ -4,7 +4,7 @@ name: Built Bot
 
 steps:
 - name: build
-  image: baalajimaestro/android_build:latest
+  image: ubuntu:latest
   environment:
     GITHUB_TOKEN:
       from_secret: GITHUB_TOKEN
